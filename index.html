@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Mode</title>
+    <style>
+        h1{
+            text-align: center;
+            font-size: 50px;
+            /* box-shadow:  0 0 20px 2px rgb(168, 164, 164); */
+        }
+        form{
+            border: 1px solid blue;
+            width: 30%;
+            height: 600px;
+            margin: auto;
+            margin-top: 70px;
+            padding-left: 50px;
+            box-shadow:  0 0 20px 2px rgb(168, 164, 164);
+        }
+        form input, form label{
+            margin: 0;
+            height: 40px;
+            width: 60%;
+            display: block;
+            font-size: 20px;
+        }
+        form label{
+            margin-top: 30px;
+            font-size: 30px;
+        }
+        form input:last-child{
+            margin-top: 20px;
+            font-weight: bolder;
+            width: 61%;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1 >Payment Form</h1>
+    <form >
+        <label for="card">Card</label>
+        <input type="text" minlength="10" maxlength="16" id="card" placeholder="Enter card number">
+        <label for="cvv">CVV</label>
+        <input type="number" id="cvvv" placeholder="Enter CVV">
+        <label for="start">Expiry Date</label>
+        <input type='month' id="start" name="start" min="2018-02" value="2018-09">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enet your name" maxlength="25">
+        <input id="intm" type="submit" value="Payment">
+    </form>
+    
+</body>
+<script>
+    
+    document.querySelector("#intm").addEventListener('click', function(){
+        event.preventDefault();
+        var card = document.querySelector('#card').value;
+        var cvv = (document.querySelector('#cvvv').value);
+        var name = (document.querySelector('#name').value);
+        console.log(card, cvv);
+        if(16 > card.length ){
+            alert('Card not valid')
+        }
+        else if(3 > cvv ){
+            alert('CVV not valid')
+        }else if(name == ""){
+            alert('Enter your name')
+        }
+        else{
+
+            window.location.href = 'otp.html';
+        }
+    });
+</script>
+</html>

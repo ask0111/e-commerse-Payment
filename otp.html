@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP</title>
+    <style>
+        h1, p, button{
+            text-align: center;
+        }
+        form{
+            /* border: 1px solid red; */
+            width: 20%; 
+            margin: auto;
+            box-shadow: 0 0 2px 1px rgb(213, 231, 231, 0.8);
+        }
+        form input{
+            margin-top: 50px;
+            padding-left: 12px;
+            font-size: 40px;
+            box-shadow: 0 0 1px 12px tan ;
+            width: 20%;
+            height: 50px;
+            text-align: center;
+        }
+        div{
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+        }
+        button{
+            width: 200px;
+            height: 50px;
+            font-size: 30px;
+        }
+        .con{
+            width: 100%;
+            height: 800px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+
+        
+        <form action="">
+        <h1>OTP Page</h1>
+        <p>Enter valid OTP</p>
+        <input type="text" maxlength="1" minlength="1" id="qw1">
+        <input type="text" maxlength="1" minlength="1" id="qw2">
+        <input type="text" maxlength="1" minlength="1" id="qw3">
+        <input type="text" maxlength="1" minlength="1" id="qw4">
+        <div>
+            <button>OTP</button>
+            
+        </div>
+    </form>
+</div>
+    
+</body>
+<script>
+    var allOtp = '1234567890';
+    var otp = ''
+   for(var i =0; i<4; i++){
+       otp += allOtp[Math.floor(Math.random()*10)];
+   }
+   alert(`OTP is ${otp} `);
+   document.querySelector("button").addEventListener('click', ()=>{
+       var a = document.querySelector('#qw1').value;
+       var b = document.querySelector('#qw2').value;
+       var c = document.querySelector('#qw3').value;
+       var d = document.querySelector('#qw4').value;
+       var abcd = a+b+c+d;
+    //    event.preventDefault();
+       if(otp == abcd){
+           alert('Payment Successful')
+       }else{
+           alert('Wrong, Please Enter Correct OTP')
+       }
+   })
+</script>
+</html>
